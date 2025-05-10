@@ -29,9 +29,22 @@ context MasterColl {
     //Child Table
     entity Categories : managed {
         UserID       : Integer;
+        CategoryID   : Integer;
         CategoryName : String(80);
         //<Field Name> : <Assocation To one/many> <Parent Table> <on> <Current Tabl Field Name.Parent Table Association Name> <= $self>
         UsersRel     : Association to one Users
                            on UsersRel.CatRel = $self; //Backward Relationship to Employee
+    }
+}
+
+
+context ExpenseColl {
+
+    entity Expense : cuid, managed {
+        UserID      : Integer;
+        CategoryID  : Integer;
+        Description : String(255);
+        Amount      : Common.AmountT;
+        Date        : DateTime;
     }
 }
