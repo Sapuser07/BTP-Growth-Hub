@@ -1,0 +1,2 @@
+//===>How to translate UI applicaiton 
+//https://port4004-workspaces-ws-mv6kr.us10.trial.applicationstudio.cloud.sap/btpcamp/webapp/index.html?sap-ui-language=de
