@@ -28,12 +28,13 @@ context MasterColl {
 
     //Child Table
     entity Categories : managed {
-        UserID       : Integer    @(title: '{i18n>}');
-        CategoryID   : Integer    @(title: '{i18n>}');
-        CategoryName : String(80) @(title: '{i18n>}');
-        //<Field Name> : <Assocation To one/many> <Parent Table> <on> <Current Tabl Field Name.Parent Table Association Name> <= $self>
-        UsersRel     : Association to one Users
-                           on UsersRel.CatRel = $self; //Backward Relationship to Employee
+        key ID           : Integer;
+            UserID       : Integer    @(title: '{i18n>}');
+            CategoryID   : Integer    @(title: '{i18n>}');
+            CategoryName : String(80) @(title: '{i18n>}');
+            //<Field Name> : <Assocation To one/many> <Parent Table> <on> <Current Tabl Field Name.Parent Table Association Name> <= $self>
+            UsersRel     : Association to one Users
+                               on UsersRel.CatRel = $self; //Backward Relationship to Employee
     }
 }
 

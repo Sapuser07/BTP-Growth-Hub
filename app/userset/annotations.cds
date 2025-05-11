@@ -1,0 +1,1 @@
+using ODATAService as service from '../../srv/WebService';

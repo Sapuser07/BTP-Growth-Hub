@@ -15,11 +15,17 @@
     "@cap-js/cds-types": "^0.10.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-btpcapabilities": "cds watch --open btpcapabilities/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-userset": "cds watch --open userset/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "sql": {
       "native_hana_associations": false
     }
-  }
+  },
+  "sapux": [
+    "app/btpcapabilities",
+    "app/userset"
+  ]
 }

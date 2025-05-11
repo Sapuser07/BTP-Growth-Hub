@@ -21,6 +21,7 @@ context UserCollViews {
 
         define view ![CategoriesSelection] as
         select from Categories {
+            ID,
             UserID,
             CategoryID,
             CategoryName               

@@ -1,14 +1,14 @@
-gi//### Indicate a new Call
+//### Indicate a new Call
 
 ###Get Service: Collection
-http://localhost:4004/odata/v4/WebService
+http://localhost:4004/odata/v4/ExpensesColl
 
 ###Get Service: MetaData of collection
-http://localhost:4004/odata/v4/WebService/$metadata
+http://localhost:4004/odata/v4/ExpensesColl/$metadata
 
 
 ###Get Service: Collection
-http://localhost:4004/odata/v4/WebService/EmployeeSet
+http://localhost:4004/odata/v4/WebService/Users
 
 
 ###Get Service: Employee Address
