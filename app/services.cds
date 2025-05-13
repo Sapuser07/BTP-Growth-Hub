@@ -1,6 +1,6 @@
 using {
-    ODATAService.UserSet       as User,
-    ODATAService.CategoriesSet as Categories
+    ODATAService.UserSet       as User
+    //ODATAService.CategoriesSet as Categories
 } from '../srv/WebService'; //Impport SRV folder file
 
 
@@ -11,7 +11,7 @@ using from './userset/annotations';
 annotate User with @(
 
     //================Advance Search View======================
-    UI.SelectionFields: [
+    UI.SelectionFields       : [
 
         //Specify the list of fields
         ID,
@@ -27,7 +27,7 @@ annotate User with @(
     ],
 
     //================Result list======================
-    UI.LineItem       : [
+    UI.LineItem              : [
 
         //Check with Anubhav
         //Not able to add field from reuse lib
@@ -61,8 +61,8 @@ annotate User with @(
             Value: Sex,
         },
         {
-            $Type: 'UI.DataField',
-            Value: OverallStatus, //Status - Instead of passing the field name, Pass the return parameter defined in WebService.cds
+            $Type      : 'UI.DataField',
+            Value      : OverallStatus, //Status - Instead of passing the field name, Pass the return parameter defined in WebService.cds
             Criticality: IconColor
         },
         {
@@ -92,14 +92,63 @@ annotate User with @(
     ],
 
     //================Update Title======================
-    UI.HeaderInfo     : {
+    UI.HeaderInfo            : {
         TypeName      : 'Expense Tracker',
         //Result view title
         TypeNamePlural: 'Expense Tracker',
         //Result view title in Plural
-    // Title         : {Value: CatRel.CategoryID, },
-    // Description   : {Value: CatRel.CategoryName}
+        Title         : {Value: CatRel.CategoryID, },
+        Description   : {Value: CatRel.CategoryName}
+    },
 
+
+    //Create UI facet
+    UI.Facets                : [{
+        $Type : 'UI.CollectionFacet',
+        Label : 'Additional Info',
+        Facets: [
+            {
+                //Default Block
+                $Type : 'UI.ReferenceFacet',
+                Label : 'More Info',
+                Target: '@UI.Identification'
+            },
+            {
+                $Type : 'UI.ReferenceFacet',
+                Label : 'More Info',
+                Target: '@UI.FieldGroup#Categories'
+            },
+            {
+                $Type : 'UI.ReferenceFacet',
+                Label : 'More Info',
+                Target: '@UI.FieldGroup#Expense'
+            },
+        ],
+    }, ],
+
+
+    UI.Identification        : [
+        {
+            $Type: 'UI.DataField',
+            Value: ID,
+        },
+    ],
+
+    UI.FieldGroup#Categories: {
+        Label: 'Categories',
+        Data : [{
+            $Type: 'UI.DataField',
+            Value: FirstName,
+        }, ],
+    },
+
+    UI.FieldGroup#Expense   : {
+        Label: 'Status',
+        Data : [{
+            $Type: 'UI.DataField',
+            Value: FirstName,
+        }, ],
     }
+
 
 );

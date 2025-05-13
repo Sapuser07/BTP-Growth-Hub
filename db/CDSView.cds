@@ -10,7 +10,13 @@ using {
 context UserCollViews {
 
     define view ![UsersSelection] as
-        select from users {
+        select from users
+        //Mixin Concept -> To enable the Expand feature in ODATA, In BTP Mixin is used.
+        mixin {
+            UserLazyLoad : Association[ * ] to CategoriesSelection
+                               on UserLazyLoad.UserID = $projection.UserID;
+        }
+        into {
             key ID as ![ID],
                 UserID,
                 FirstName,
@@ -18,16 +24,26 @@ context UserCollViews {
                 Email,
                 Phone,
                 Sex,
-                Status
+                Status,
+                UserLazyLoad as ![To_UserHeader]
         };
 
+
     define view ![CategoriesSelection] as
-        select from Categories {
+        select from Categories
+        mixin {
+            //View on view
+            LazyLoad : Association[ * ] to UsersSelection
+                           on LazyLoad.UserID = $projection.UserID;
+        }
+        into {
             ID,
             UserID,
             CategoryID,
-            CategoryName
+            CategoryName,
+            LazyLoad as ![To_CategoryHeader]
         };
+
 }
 
 

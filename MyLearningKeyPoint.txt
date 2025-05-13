@@ -4,3 +4,12 @@
 
 //Check with Anubhav -> applicaiton still taking the data from local DB not from HDB
 
+
+//Anubhav Git - git clone https://github.com/soyuztechnologies/bosch_cap_training1.git mycapapp
+cd mycapapp
+npm install
+cds watch
+
+
+//To Support V2 ODATA Install the below adoptor
+npm install @cap-js-community/odata-v2-adapter

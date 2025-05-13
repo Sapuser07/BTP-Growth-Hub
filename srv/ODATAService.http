@@ -7,80 +7,68 @@ http://localhost:4004/odata/v4/ExpensesColl
 http://localhost:4004/odata/v4/ExpensesColl/$metadata
 
 
-###Get Service: Collection
-http://localhost:4004/odata/v4/WebService/Users
+###Get Service: User Set
+http://localhost:4004/odata/v4/ExpensesColl/UserSet
 
 
-###Get Service: Employee Address
-http://localhost:4004/odata/v4/WebService/EmployeeAddSet
+###Get Service: User Set: Pagination 
+http://localhost:4004/odata/v4/ExpensesColl/UserSet?$top=2&$skip=2
 
-###Get Service: Employee: Pagination 
-http://localhost:4004/odata/v4/WebService/EmployeeSet?$top=2&$skip=2
+###Get Service: User Set: Count 
+http://localhost:4004/odata/v4/ExpensesColl/UserSet/$count
 
-###Get Service: Employee: Count 
-http://localhost:4004/odata/v4/WebService/EmployeeSet/$count
-
-###Get Service: Employee: Single Record by Key
-http://localhost:4004/odata/v4/WebService/EmployeeSet/1
+###Get Service: User Set: Single Record by Key
+http://localhost:4004/odata/v4/ExpensesColl/UserSet/1
 
 
-###Get Service: Employee: Filter 
-http://localhost:4004/odata/v4/WebService/EmployeeSet?$filter=modifiedBy eq 'admin'
+###Get Service: User Set: Filter 
+http://localhost:4004/odata/v4/ExpensesColl/UserSet?$filter=modifiedBy eq 'admin'
 
-###Get Service: Employee: Case Filter  
-http://localhost:4004/odata/v4/WebService/EmployeeSet?$filter=contains(modifiedBy, 'admin')
+###Get Service: User Set: Case Filter  
+http://localhost:4004/odata/v4/ExpensesColl/UserSet?$filter=contains(modifiedBy, 'admin')
 
 
-###POST Service: Employee   ===> Not working
-http://localhost:4004/odata/v4/WebService/EmployeeSet
+###POST Service: User Set   ===> Not working
+http://localhost:4004/odata/v4/ExpensesColl/UserSet
 Content-Type: application/json
 
 {
-      "NODE_KEY": "6",
-      "EmpID": "EMP006",
-      "Name": "Devendra",
-      "Role": "C4C Consultant",
-      "Email": "devsingh.sap@example.com",
-      "Phone": "555-4321",
-      "Department": "C4C",
-      "DOJ": "2019-12-01T00:00:00Z",
-      "Status": null,
-      "AddressGUID_ID": "ADDR004",
-      "SalaryGUID_ID": "SAL004"
+      "UserID": "106",
+      "FirstName":"Dev",
+      "LastName": "Singh",
+      "Email": "d@example.com"
 }
 
-###Get the data of new employee - COPY THE ID FROM LAST CALL MANUALLY
-http://localhost:4004/odata/v4/WebService/EmployeeSet/5
+###Get the data of new User Set - COPY THE ID FROM LAST CALL MANUALLY
+http://localhost:4004/odata/v4/ExpensesColl/UserSet/5
 
 ###PATCH - used to update data
-PATCH http://localhost:4004/odata/v4/WebService/EmployeeSet/5
+PATCH http://localhost:4004/odata/v4/ExpensesColl/UserSet/5
 Content-Type: application/json
 
 {
-    "Role": "Consultant"
+    "FirstName": "Consultant"
 }
 
 
 ###DELETE - Remove data from DB
-DELETE http://localhost:4004/odata/v4/WebService/EmployeeSet/5
+DELETE http://localhost:4004/odata/v4/ExpensesColl/UserSet/5
 
 ###Test the V2 response :: npm install @cap-js-community/odata-v2-adapter
-http://localhost:4004/odata/v2/WebService/EmployeeSet/4
+http://localhost:4004/odata/v2/ExpensesColl/UserSet/5
 
-####Lazy loading concept
-http://localhost:4004/odata/v2/WebService/EmployeeSet('4')?$expand=AddressGUID
-
-###Get the Address Data
- http://localhost:4004/odata/v4/WebService/EmployeeAddSet/5
+####Lazy loading concept 
+http://localhost:4004/odata/v2/ExpensesColl/UserSet('4')?$expand=CatRel
 
 
 ###Calling the action :: Not working
-POST http://localhost:4004/odata/v4/WebService/EmployeeAddSet/boots
+POST http://localhost:4004/odata/v4/ExpensesColl/UserSet/penalty
 Content-Type: application/json
 
 {
+  "UserID": "106"  
 }
 
 ###Call the function
-http://localhost:4004/odata/v4/WebService/getLargestOrder()
+http://localhost:4004/odata/v4/ExpensesColl/loadInitials()
 
