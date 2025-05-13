@@ -1,6 +1,4 @@
 ID,UserID,CategoryID,Description,Amount,Date,createdAt,createdBy,modifiedAt,modifiedBy
-1, 101, 201, 'Grocery shopping', 150.00,,,,,
-2, 102, 202, 'Electricity bill', 75.00,,,,,
-3, 103, 203, 'Movie tickets', 30.00,,,,,
-4, 104, 204, 'Gas for car', 50.00,,,,,
-5, 105, 205, 'Gym membership', 40.00,,,,,
+1,001,001,Purchase of electronics,150.75,,,,,
+2,002,002,Purchase of electronics,150.75,,,,,
+3,003,003,Purchase of electronics,150.75,,,,,

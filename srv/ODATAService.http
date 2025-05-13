@@ -55,10 +55,10 @@ Content-Type: application/json
 DELETE http://localhost:4004/odata/v4/ExpensesColl/UserSet/5
 
 ###Test the V2 response :: npm install @cap-js-community/odata-v2-adapter
-http://localhost:4004/odata/v2/ExpensesColl/UserSet/5
+http://localhost:4004/odata/v2/ExpensesColl/UserSet/3
 
 ####Lazy loading concept 
-http://localhost:4004/odata/v2/ExpensesColl/UserSet('4')?$expand=CatRel
+http://localhost:4004/odata/v2/ExpensesColl/UserSet('3')/Items_Categories
 
 
 ###Calling the action :: Not working

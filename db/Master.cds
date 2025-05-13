@@ -16,27 +16,30 @@ context MasterColl {
 
     //Define the List of tables with Entity anotation
     entity Users : cuid, managed {
-        UserID    : Integer            @(title: '{i18n>User_UserID}');
-        FirstName : String(40)         @(title: '{i18n>User_FirstName}');
-        LastName  : String(40)         @(title: '{i18n>User_LastName}');
-        Email     : Common.Email       @(title: '{i18n>User_Email}');
-        Phone     : Common.PhoneNumber @(title: '{i18n>User_Phone}');
-        Status    : String(1)          @(title: '{i18n>}User_Status');
-        Sex       : Common.Gender; //Check with Anubhav
+        UserID           : Integer            @(title: '{i18n>User_UserID}');
+        FirstName        : String(40)         @(title: '{i18n>User_FirstName}');
+        LastName         : String(40)         @(title: '{i18n>User_LastName}');
+        Email            : Common.Email       @(title: '{i18n>User_Email}');
+        Phone            : Common.PhoneNumber @(title: '{i18n>User_Phone}');
+        Status           : String(1)          @(title: '{i18n>}User_Status');
+        Sex              : Common.Gender; //Check with Anubhav
         //Association with Categories Table - Farward Navigation
         //As per Design, Users GUID will connect with Primary key (NODE_KEY) of Categories table
-        CatRel    : Association to one Categories;
+ 
+        //Lazy Load
+        Items_Categories : Composition of many Categories
+                               on Items_Categories.ID = $self;
+
     }
 
     //Child Table
     entity Categories : managed {
-        key ID           : Integer;
+            //Lazy Load
+        key ID           : Association to Users;
+            //Categories Field
             UserID       : Integer    @(title: '{i18n>}');
             CategoryID   : Integer    @(title: '{i18n>}');
             CategoryName : String(80) @(title: '{i18n>}');
-            //<Field Name> : <Assocation To one/many> <Parent Table> <on> <Current Tabl Field Name.Parent Table Association Name> <= $self>
-            UsersRel     : Association to one Users
-                               on UsersRel.CatRel = $self; //Backward Relationship to Employee
     }
 }
 

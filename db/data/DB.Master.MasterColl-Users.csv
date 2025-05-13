@@ -1,6 +1,4 @@
-ID,UserID,FirstName,LastName,Email,Phone,Status,Sex,CatRel_ID,createdAt,createdBy,modifiedAt,modifiedBy
-1, 101, John, Doe, john.doe@example.com,,A,M,,,,, 
-2, 102, Jane, Smith, jane.smith@example.com,,I,M,,,,,
-3, 103, Alice, Johnson, alice.j@example.com,,A,M,,,,,
-4, 104, Bob, Brown, bob.brown@example.com,,I,M,,,,,
-5, 105, Charlie, Davis, charlie.d@example.com,,A,M,,,,,
+ID,UserID,FirstName,LastName,Email,Phone,Status,Sex,createdAt,createdBy,modifiedAt,modifiedBy
+1,001,John,Doe,john.doe@example.com,1234567890,A,M,,,,
+2,002,John,Doe,john.doe@example.com,1234567890,A,M,,,,
+3,003,John,Doe,john.doe@example.com,1234567890,I,F,,,,
