@@ -18,10 +18,10 @@ context MasterColl {
     entity Users : cuid, managed {
         UserID    : Integer            @(title: '{i18n>User_UserID}');
         FirstName : String(40)         @(title: '{i18n>User_FirstName}');
-        LastName  : String(40)         @(title: '{i18n>}User_LastName');
+        LastName  : String(40)         @(title: '{i18n>User_LastName}');
         Email     : Common.Email       @(title: '{i18n>User_Email}');
-        Phone     : Common.PhoneNumber @(title: '{i18n>}User_Phone');
-        Status    : String(1)          @(title: '{i18n>}User_Phone');
+        Phone     : Common.PhoneNumber @(title: '{i18n>User_Phone}');
+        Status    : String(1)          @(title: '{i18n>}User_Status');
         Sex       : Common.Gender; //Check with Anubhav
         //Association with Categories Table - Farward Navigation
         //As per Design, Users GUID will connect with Primary key (NODE_KEY) of Categories table

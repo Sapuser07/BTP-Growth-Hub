@@ -58,6 +58,15 @@ annotate User with @(
         },
         {
             $Type: 'UI.DataField',
+            Value: Sex,
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: OverallStatus, //Status - Instead of passing the field name, Pass the return parameter defined in WebService.cds
+            Criticality: IconColor
+        },
+        {
+            $Type: 'UI.DataField',
             Value: createdAt,
         },
         {
@@ -84,10 +93,12 @@ annotate User with @(
 
     //================Update Title======================
     UI.HeaderInfo     : {
-        TypeName      : 'Expense Tracker', //Result view title
-        TypeNamePlural: 'Expense Tracker',//Result view title in Plural
-        // Title         : {Value: CatRel.CategoryID, },
-        // Description   : {Value: CatRel.CategoryName}
+        TypeName      : 'Expense Tracker',
+        //Result view title
+        TypeNamePlural: 'Expense Tracker',
+        //Result view title in Plural
+    // Title         : {Value: CatRel.CategoryID, },
+    // Description   : {Value: CatRel.CategoryName}
 
     }
 

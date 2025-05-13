@@ -1,9 +1,9 @@
 namespace DB.CDSView;
 
 using {
-    DB.Master.MasterColl.Users as users,
+    DB.Master.MasterColl.Users      as users,
     DB.Master.MasterColl.Categories as Categories,
-    DB.Master.ExpenseColl.Expense as Expense
+    DB.Master.ExpenseColl.Expense   as Expense
 } from './Master';
 
 
@@ -16,15 +16,17 @@ context UserCollViews {
                 FirstName,
                 LastName,
                 Email,
-                Phone
+                Phone,
+                Sex,
+                Status
         };
 
-        define view ![CategoriesSelection] as
+    define view ![CategoriesSelection] as
         select from Categories {
             ID,
             UserID,
             CategoryID,
-            CategoryName               
+            CategoryName
         };
 }
 

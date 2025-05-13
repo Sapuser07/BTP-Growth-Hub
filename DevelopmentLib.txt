@@ -1,3 +1,6 @@
 //===>How to translate UI applicaiton 
 //https://port4004-workspaces-ws-mv6kr.us10.trial.applicationstudio.cloud.sap/btpcamp/webapp/index.html?sap-ui-language=de
 
+
+//Check with Anubhav -> applicaiton still taking the data from local DB not from HDB
+
