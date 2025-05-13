@@ -21,6 +21,8 @@ context MasterColl {
         LastName  : String(40)         @(title: '{i18n>}User_LastName');
         Email     : Common.Email       @(title: '{i18n>User_Email}');
         Phone     : Common.PhoneNumber @(title: '{i18n>}User_Phone');
+        Status    : String(1)          @(title: '{i18n>}User_Phone');
+        Sex       : Common.Gender; //Check with Anubhav
         //Association with Categories Table - Farward Navigation
         //As per Design, Users GUID will connect with Primary key (NODE_KEY) of Categories table
         CatRel    : Association to one Categories;
